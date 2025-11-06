@@ -67,6 +67,7 @@ class UserController extends Controller
     public function show(User $user)
     
     {
+        dd ($user);
         $user::select('users.*', 'enderecos.*')
         ->where('users.id', '=', $user->id)
         ->join('enderecos', 'enderecos.id', 'users.end_id')
@@ -81,6 +82,7 @@ class UserController extends Controller
     {
       
         return view('users.edit', ['user' => $user]);
+        
         
         
     }
