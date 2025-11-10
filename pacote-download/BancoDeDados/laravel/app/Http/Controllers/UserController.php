@@ -2,44 +2,39 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use App\Models\Endereco;
+use App\Http\Requests\UserRequest;
+use App\Models\User; 
+use Illuminate\Support\Facades\DB; 
+use App\Models\Endereco; 
 
 class UserController extends Controller
 {
    
     public function index()
     {
+        //consulta com join das tabelas users e enderecos, e seleciona todos dados das tabelas users e enderecos 
        $users = DB::table('users')
        ->join('enderecos', 'users.end_id', '=', 'enderecos.id')
-       ->select('users.id', 
-       'users.name', 
-       'users.surname', 
-       'users.age', 
-       'users.email', 
-       'enderecos.road', 
-       'enderecos.neighborhood',
-       'enderecos.number')
+       ->select('users.*',
+       'enderecos.*')
        ->get();
-  
+        //retorna para a view index, onde 'users' vai receber o valor da variavel $users
         return view('users.index', ['users' => $users]);
     }
 
    
     public function create()
     {
+        //retorna para a view create
        return view('users.create');
     }
 
    
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         
 
-      
+      //
         $endereco = Endereco::create ([
             
             'road' => $request -> road,
@@ -86,7 +81,7 @@ class UserController extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         
         $user = User::findOrFail($id);

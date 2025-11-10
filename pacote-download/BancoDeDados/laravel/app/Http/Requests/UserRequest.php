@@ -29,6 +29,7 @@ class UserRequest extends FormRequest
             'email' => 'required|email',
             'age' => 'required',
             'password' => 'required|min:6',
+           
         ];
     }
 
@@ -36,6 +37,7 @@ class UserRequest extends FormRequest
 
         return[
             'name.required' => 'Campo nome é obrigatório!',
+            'surname.required' => 'Campo sobrenome é obrigatório!',
             'email.required' => ' Campo e-mail é obrigatório!',
             'email.email' => 'Necessário enviar e-mail válido!',
             'password.required' => 'Campo senha é obrigatório!',
