@@ -50,12 +50,13 @@
                 <div class="col-sm-9">{{ $user->surname }}</div>
             </div>
 
+            
 
             <div class="row mb-2">
                 <div class="col-sm-3 text-muted">Idade</div>
-                <div class="col-sm-9">{{ $user->age }}</div>
+                <div class="col-sm-9"> {{ $user->age }}</div>
             </div>
-
+           
             <div class="row mb-2">
                 <div class="col-sm-3 text-muted">E-mail</div>
                 <div class="col-sm-9">{{ $user->email }}</div>

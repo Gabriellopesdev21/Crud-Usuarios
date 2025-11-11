@@ -15,7 +15,7 @@
     </div>
 @endif
 
-@if($users->count() > 0)
+@if($user->count() > 0)
     <div class="card shadow-sm">
         <div class="card-body p-0">
             <table class="table table-striped mb-0">
@@ -31,7 +31,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($users as $user)
+                    @foreach($user as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
